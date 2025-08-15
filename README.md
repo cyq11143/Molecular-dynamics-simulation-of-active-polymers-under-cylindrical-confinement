@@ -15,7 +15,13 @@ mkdir build; cd build                                           # create and use
 cmake -D PKG_MOLECULE=yes -D LAMMPS_MACHINE=mpi ../cmake      # configuration reading CMake scripts from ../cmake
 cmake --build .                                                 # compilation (or type "make")
 ```
-After compilation, you get the LAMMPS executable **lmp_mpi** inside the build folder.
-
-for more details, you can read offical manual <https://docs.lammps.org/Manual.html>.
-## coding and running
+After compilation, you get the LAMMPS executable **lmp_mpi** inside the build folder. For more details, you can read offical manual <https://docs.lammps.org/Manual.html>.
+## Coding and running
+This project studies the motion of active polymers within a cylinder and on surface of a cylinder respectively. The cylindrical wall has harmonic interaction with active polymers, while actove polymers have pair_style interaction, bond_style and angle_style interaction. Research are focused on the influence of the angle interaction coefficient $\kappa$ on motion of active polymers. 
+The key coding file is an input file(with the ".in" suffix). LAMMPS will read the commands in the input file and start the simulation. The running command is as follows:
+```
+mpirun -np 6 /path/lmp_mpi -in file.in       # 6 is the number of operating cores of the computer, file.in is the coding file. 
+```
+After running, you can get the dump file which records the information of the atoms and polymers.
+## Visualization
+Visualization is achieved by the OVITO software. Opening the dump files with OVITO, you can observe the motion of active polymers.
