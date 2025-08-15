@@ -12,12 +12,12 @@ then just follow the instrument of LAMMPS manual to build LAMMPS:
 ```
 cd lammps-23Jun2022                                             # wirte your version
 mkdir build; cd build                                           # create and use a build directory
-cmake -D PKG_MOLECULE=yes -D LAMMPS_MACHINE=mpi ../cmake      # configuration reading CMake scripts from ../cmake
+cmake -D PKG_MOLECULE=yes -D LAMMPS_MACHINE=mpi ../cmake        # configuration reading CMake scripts from ../cmake
 cmake --build .                                                 # compilation (or type "make")
 ```
 After compilation, you get the LAMMPS executable **lmp_mpi** inside the build folder. For more details, you can read offical manual <https://docs.lammps.org/Manual.html>.
 ## Coding and running
-This project studies the motion of an active polymer within a cylinder and on surface of a cylinder respectively. The cylindrical wall has harmonic interaction with the active polymer, while the active polymer itself has pair_style interaction, bond_style and angle_style interaction. Research are focused on the influence of the angle interaction coefficient $\kappa$ on motion of active polymers. 
+This project studies the motion of an active polymer within a cylinder and on surface of a cylinder respectively. The cylindrical wall has harmonic interaction with the active polymer, while the active polymer itself has pair_style interaction, bond_style and angle_style interaction. Research are focused on the influence of the angle interaction coefficient **$\kappa$** on motion of active polymers. 
 The key coding file is an input file(with the ".in" suffix). LAMMPS will read the commands in the input file and start the simulation. The running command is as follows:
 ```
 mpirun -np 6 /path/lmp_mpi -in file.in       # 6 is the number of operating cores of the computer, file.in is the coding file. 
