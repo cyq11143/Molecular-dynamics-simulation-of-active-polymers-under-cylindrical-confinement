@@ -1,22 +1,22 @@
-#复现文献Structure and dynamics of an active polymer adsorbed on the surface of a cylinder
-variable i loop 1 12
-variable T equal 4.8-v_i*0.3
-variable h equal 50
-variable a equal 40
-variable b equal 40
-variable R equal 3
-variable k equal 10000 
-variable kappa equal 0.5
-variable cutoff1 equal 2.5
-variable N equal 80
-variable cutoff2 equal 1.12246
-variable gamma equal 10
-variable T equal 1.2
-variable activeF equal 1
-variable damp equal 1.0/v_gamma
-variable seed equal 12258
-#variable f    equal 10*normalize(vector(x[i+1]-x[i-1], y[i+1]-y[i-1], z[i+1]-z[i-1]))
-variable  f equal 10
+# 复现文献Structure and dynamics of an active polymer adsorbed on the surface of a cylinder
+variable       i       loop 1 12
+variable       T       equal 4.8-v_i*0.3
+variable       h       equal 50
+variable       a       equal 40
+variable       b       equal 40
+variable       R       equal 3
+variable       k       equal 10000 
+variable       kappa   equal 0.5
+variable       cutoff1 equal 2.5
+variable       N       equal 80
+variable       cutoff2 equal 1.12246
+variable       gamma   equal 10
+variable       T       equal 1.2
+variable       activeF equal 1
+variable       damp    equal 1.0/v_gamma
+variable       seed    equal 12258
+# variable f    equal 10*normalize(vector(x[i+1]-x[i-1], y[i+1]-y[i-1], z[i+1]-z[i-1]))
+variable       f       equal 10
 
 units          lj
 dimension      3
@@ -50,9 +50,9 @@ dump           1 all custom 5000 active_polymerR=${R}kappa=${kappa}.dump type id
 
 fix            1 1 langevin 1.5 1.5 ${damp} ${seed} zero yes 
 fix            2 2 spring/self 100000.0 
-#fix           3 3 addforce v_f[1] v_f[2] v_f[3]
+# fix           3 3 addforce v_f[1] v_f[2] v_f[3]
 
-#fix           4 1 nve
+# fix           4 1 nve
 label          loop_start
 fix            3 1 nvt temp ${T} ${T}  1.0
 run            100000
