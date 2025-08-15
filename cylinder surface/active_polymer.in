@@ -15,7 +15,6 @@ variable       T       equal 1.2
 variable       activeF equal 1
 variable       damp    equal 1.0/v_gamma
 variable       seed    equal 12258
-# variable f    equal 10*normalize(vector(x[i+1]-x[i-1], y[i+1]-y[i-1], z[i+1]-z[i-1]))
 variable       f       equal 10
 
 units          lj
@@ -32,7 +31,7 @@ angle_style    harmonic
 read_data      data1.co     
 
 pair_coeff     1 2 1.0 1.0 2.5
-pair_coeff     1 1 1.0 1.0 1.12246 #此处有些问题
+pair_coeff     1 1 1.0 1.0 1.12246
 pair_coeff     2 2 1.0 1.0 1.12246
 bond_coeff     1 ${k} 1.0
 angle_coeff    1 ${kappa} 180
@@ -50,9 +49,7 @@ dump           1 all custom 5000 active_polymerR=${R}kappa=${kappa}.dump type id
 
 fix            1 1 langevin 1.5 1.5 ${damp} ${seed} zero yes 
 fix            2 2 spring/self 100000.0 
-# fix           3 3 addforce v_f[1] v_f[2] v_f[3]
 
-# fix           4 1 nve
 label          loop_start
 fix            3 1 nvt temp ${T} ${T}  1.0
 run            100000
