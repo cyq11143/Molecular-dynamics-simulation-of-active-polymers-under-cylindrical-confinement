@@ -8,7 +8,7 @@ Next step is building LAMMPS with cmake. In the linux terminal window, Go to the
 cd  path
 tar -zxvf lammps-stable.tar.gz # replace with your package's name
 ```
-then just follow the instrument of LAMMPS manual to build LAMMPS:
+Then just follow the instrument of LAMMPS manual to build LAMMPS:
 ```
 cd lammps-23Jun2022                                             # wirte your version
 mkdir build; cd build                                           # create and use a build directory
